@@ -18,9 +18,7 @@ $ sudo apt install jq
 You have to prepare slack apps for using this script.  
 Before running, please make slack apps and get slack webhook urls.
 
-Please refere to following url.
-
-
+Please refere to following url.  
 https://api.slack.com/apps
 
 
