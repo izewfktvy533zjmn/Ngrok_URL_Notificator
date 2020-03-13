@@ -11,11 +11,25 @@ This script can check ngrok's url through slack app.
 ## Requriment
 You must install jq, which will be used by this script.
 
-```console 
+```
 $ sudo apt install jq
 ```
 
-You have to prepare slack apps for using this script.  
+
+Before running scripts, you should run ngrok service.  
+If you want to access to local machine by using ssh, for example, you have to execute a following command.
+```
+$ ./ngrok tcp 22 -region=ap
+```
+In case of executed above command, you can send ngrok url to slack by running *send\_ngrok\_tcp\_url\_to\_slack.sh*   
+
+If you want to publish web service, you have to execute a following command.
+```
+$ ./ngrok http 80 -region=ap
+```
+In case of executed above command, you can send ngrok url to slack by running *send\_ngrok\_http\_url\_to\_slack.sh*   
+
+You have to prepare slack apps for using scripts.  
 Before running, please make slack apps and get slack webhook urls.
 
 Please refere to following url.  
@@ -28,11 +42,10 @@ $ git clone
 $ cd Ngrok_URL_Notificator
 $ chmod +x send_ngrok_tcp_url_to_slack.sh
 $ ./send_ngrok_tcp_url_to_slack.sh
-Usage: send_ngrok_http_url_to_slack.sh SLACK_WEBHOOK_URL
+Usage: send_ngrok_tcp_url_to_slack.sh SLACK_WEBHOOK_URL
 $ nohup ./send_ngrok_tcp_url_to_slack.sh https://hooks.slack.com/services/XXXXXXXXX/YYYYYYYYY/ZZZZZZZZZZZZZZZZZZZZZZZZ &
 ```
 
 If this script work properly, you will see a post in slack at the event.
 
-<p align="center"><img width="70%"src="./images/notification.png" alt="notification">/p>
-
+<p align="center"><img width="70%"src="./images/notification.png" alt="notification"></p>
