@@ -33,7 +33,7 @@ do
 
         while [ "$NGROK_URL" = "" ]
         do
-            NGROK_URL=`curl -s localhost:4040/api/tunnels | jq -r .tunnels[].public_url | grep --color=never http://*`
+            NGROK_URL=`curl -s localhost:4040/api/tunnels | jq -r .tunnels[].public_url | grep --color=never https://*`
             sleep 1
         done
 
