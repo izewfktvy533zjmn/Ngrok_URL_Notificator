@@ -25,7 +25,7 @@ do
             TEXT="[$HOSTNAME] connecting"
             curl -s -X POST -H 'Content-type: application/json' --data '{"text":"'"$TEXT"'"}' $SLACK_WEBHOOK_URL > /dev/null
         else
-            if [ "PREV_NGROK_URL" != ""]; then
+            if [ "$PREV_NGROK_URL" != ""]; then
                 TEXT="[$HOSTNAME] disconnect"
                 curl -s -X POST -H 'Content-type: application/json' --data '{"text":"'"$TEXT"'"}' $SLACK_WEBHOOK_URL > /dev/null
             fi
